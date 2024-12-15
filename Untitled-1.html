@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Skincare Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f0f4f8;
+        }
+
+        .section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            scroll-snap-align: start;
+            position: relative;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #home {
+            background: linear-gradient(135deg, #200016 0%, #4a0032 100%);
+        }
+
+        #routine {
+            background: linear-gradient(135deg, #200016 0%, #300024 100%);
+        }
+
+        #products {
+            background: linear-gradient(135deg, #200016 0%, #400040 100%);
+        }
+
+        #tips {
+            background: linear-gradient(135deg, #200016 0%, #5a004a 100%);
+        }
+
+        .container {
+            max-width: 800px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .scroll-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        .star {
+            position: absolute;
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 50%;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 20px;
+        }
+
+        ul li {
+            margin: 10px 0;
+            background-color: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-container">
+        <section id="home" class="section">
+            <div class="container">
+                <h1>✨ Stellar Skincare Journey ✨</h1>
+                <p>Discover the universe of radiant, healthy skin</p>
+            </div>
+        </section>
+
+        <section id="routine" class="section">
+            <div class="container">
+                <h2>Your Celestial Skincare Routine</h2>
+                <p>Morning & Night Rituals to Illuminate Your Skin</p>
+                <ul>
+                    <li>Cleanse: Remove daily impurities</li>
+                    <li>Tone: Balance skin's pH</li>
+                    <li>Serum: Target specific concerns</li>
+                    <li>Moisturize: Hydrate and protect</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="products" class="section">
+            <div class="container">
+                <h2>Recommended Skincare Products</h2>
+                <p>Products That Shine Like Stars</p>
+                <ul>
+                    <li>Hydrating Serums</li>
+                    <li>Vitamin C Moisturizers</li>
+                    <li>Gentle Exfoliants</li>
+                    <li>Sunscreen Protection</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tips" class="section">
+            <div class="container">
+                <h2>Skincare Tips from the Cosmos</h2>
+                <p>Universal Guidelines for Glowing Skin</p>
+                <ul>
+                    <li>Stay Hydrated</li>
+                    <li>Get Enough Sleep</li>
+                    <li>Protect from Sun Damage</li>
+                    <li>Eat a Balanced Diet</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function createStars() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                for (let i = 0; i < 50; i++) {
+                    const star = document.createElement('div');
+                    star.classList.add('star');
+                    
+                    star.style.width = `${Math.random() * 3}px`;
+                    star.style.height = star.style.width;
+                    
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    
+                    star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                    star.style.animationDelay = `${Math.random() * 3}s`;
+                    star.style.animation = 'twinkle infinite alternate';
+                    
+                    section.appendChild(star);
+                }
+            });
+        }
+
+        createStars();
+    </script>
+</body>
+</html>
